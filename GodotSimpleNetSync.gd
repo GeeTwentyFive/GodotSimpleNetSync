@@ -93,10 +93,16 @@ static func create(
 	
 	return sns
 
-func send(data: String):
+func send(data: String) -> Error:
+	if data.length() > 65535-8:
+		printerr("data size exceeds max UDP packet size")
+		return FAILED
+	
 	_local_packet_seq_num += 1
 	var packet_data := PackedByteArray()
 	packet_data.resize(8)
 	packet_data.encode_s64(0, _local_packet_seq_num)
 	packet_data.append_array(data.to_ascii_buffer())
 	_peer.put_packet(packet_data)
+	
+	return OK
