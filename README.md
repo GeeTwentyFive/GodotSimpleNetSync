@@ -9,7 +9,7 @@ var local_client_state := 0
 
 
 func _ready() -> void:
-	sns = SimpleNetSync.create("::1", 55555)
+	sns = SimpleNetSync.create("::1", 55555, func(): print("DISCONNECTED"))
 	print("Local ID: " + str(sns.local_id))
 
 func _process(_delta: float) -> void:
