@@ -23,6 +23,6 @@ func _process(_delta: float) -> void:
 # API
 
 - Constructor: `var sns = SimpleNetSync.create(server_ip, server_port)`
-- State of all clients (as `{int: str}` dictionary, where `int` is client ID, and `str` is state): `sns.state`
+- State of all clients (as `{int: str}` dictionary, where `int` is client ID, and `str` is state): `sns.states`
 - Local client ID: `sns.local_id`
 - Update local client's state on server: `sns.send(LOCAL_STATE)`
