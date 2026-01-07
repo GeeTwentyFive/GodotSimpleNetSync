@@ -80,7 +80,7 @@ static func create(
 	keepalive_timer.autostart = true
 	var keepalive_packet := PackedByteArray()
 	keepalive_packet.resize(8)
-	keepalive_packet.encode_s64(0, -1)
+	keepalive_packet.encode_s64(0, 0)
 	keepalive_timer.timeout.connect(func():
 		if sns._disconnected:
 			keepalive_timer.stop()
