@@ -42,7 +42,7 @@ static func create(
 		var data := sns._peer.get_packet()
 		if len(data) < 8: continue
 		if data.decode_s64(0) == -1:
-			sns.local_id = data.decode_s64(0)
+			sns.local_id = data.decode_s64(8)
 			break
 		OS.delay_msec(200)
 	
